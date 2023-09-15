@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quiptster</title>
+    <link
+      rel="shortcut icon"
+      href="./public/speech-bubble.png"
+      type="image/x-icon"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&family=Urbanist:ital,wght@1,700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <h1>Quipster</h1>
+      <h5>Whispers of your <span>heart</span></h5>
+    </header>
+    <main>
+      <form
+        hx-post="/.netlify/functions/saveWhisper"
+        hx-trigger="submit"
+        hx-target="#whispers-title"
+        hx-swap="afterend"
+        hx-on::before-request="this.querySelector('.loading-animation').classList.add('active')"
+        hx-on::after-request="this.reset(); this.querySelector('.loading-animation').classList.remove('active')"
+      >
+        <textarea name="whisper" maxlength="100"></textarea>
+        <button>whisper</button>
+        <div class="loading-animation">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </form>
+      <section
+        class="posts-container"
+        hx-on::before-request="this.querySelector('.loading-animation').classList.add('active')"
+        hx-on::after-request="this.querySelector('.loading-animation').classList.remove('active')"
+      >
+        <h2 id="whispers-title">Whispers...</h2>
+        <span
+          hx-get="/.netlify/functions/getWhispers"
+          hx-trigger="load"
+          hx-target="this"
+          hx-swap="outerHTML"
+          class="loader"
+        >
+          <div class="loading-animation active">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </span>
+
+        <div class="loading-animation">
+          <span></span><span></span><span></span><span></span>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/src/main.ts"></script>
+    <script
+      src="https://unpkg.com/htmx.org@1.9.5"
+      integrity="sha384-xcuj3WpfgjlKF+FXhSQFQ0ZNr39ln+hwjN3npfM9VBnUskLolQAcN80McRIVOPuO"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
