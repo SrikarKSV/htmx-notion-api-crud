@@ -9,7 +9,7 @@ const units = {
   second: 1000,
 };
 
-export default function formatRelativeDate(date) {
+export default function formateDate(date) {
   const elapsed = new Date(date) - new Date();
 
   // "Math.abs" accounts for both "past" & "future" scenarios

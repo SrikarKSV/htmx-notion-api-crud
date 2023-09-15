@@ -1,11 +1,11 @@
-import formatRelativeDate from './utils/formateDate';
-const { Client } = require('@notionhq/client');
+import formatRelativeDate from './utils/formateDate.js';
+import { Client } from '@notionhq/client';
 
 const notion = new Client({ auth: process.env.NOTION_KEY });
 
 const database_id = process.env.NOTION_DATABASE_ID;
 
-exports.handler = async function getWhispers(event, context) {
+exports.handler = async (event, context) => {
   const { queryStringParameters } = event;
 
   const res = await notion.databases.query({

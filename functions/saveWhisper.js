@@ -1,5 +1,5 @@
-import formatRelativeDate from './utils/formateDate';
-const { Client } = require('@notionhq/client');
+import formatRelativeDate from './utils/formateDate.js';
+import { Client } from '@notionhq/client';
 
 const notion = new Client({ auth: process.env.NOTION_KEY });
 
