@@ -88,6 +88,10 @@ section {
     &:last-of-type {
       margin-bottom: 3rem;
     }
+
+    small {
+      color: var(--gray);
+    }
   }
 
   button {
