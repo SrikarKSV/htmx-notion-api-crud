@@ -117,6 +117,26 @@ section {
   }
 }
 
+footer {
+  margin-left: 2rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 5px;
+
+  .socials {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    a {
+      padding: 0;
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+
 @media only screen and (max-width: 62.5em) {
   // 1000px
 
@@ -171,5 +191,9 @@ section {
 
   section button {
     margin: 1rem auto 2rem;
+  }
+
+  footer {
+    margin-left: 1rem;
   }
 }
