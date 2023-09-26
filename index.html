@@ -42,7 +42,7 @@
         hx-on::before-request="this.querySelector('.loading-animation').classList.add('active')"
         hx-on::after-request="this.reset(); this.querySelector('.loading-animation').classList.remove('active')"
       >
-        <textarea name="whisper" maxlength="100" required></textarea>
+        <textarea name="whisper" required></textarea>
         <button>whisper</button>
         <div class="loading-animation">
           <span></span><span></span><span></span><span></span>
